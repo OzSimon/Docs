@@ -11,3 +11,7 @@ Creating your own SSL certificate is straightforward. With the New-SelfSignedCer
 ```powershell
 $Certificate = New-SelfSignedCertificate –Subject Contoso.com -CertStoreLocation Cert:\CurrentUser\My 
 ```
+
+The cmdlet above will create a self-signed SSL server authentication certificate for the domain Contoso.com in the current user's certificate store. By default, the certificate is valid for one year, but you can adjust the expiry using the NotAfter parameter. Additional parameter details will be covered later.
+
+> [NOTE!] **Note**: Creating a certificate in the current user store makes it available only to the current user. To make it available to all users on the local machine, create the certificate in Cert:\LocalMachine\My.
