@@ -33,8 +33,16 @@ To export a specific certificate, you can use the following example:
 
 ```powershell
 $CertificateName = Contoso
-$CertificateThumbprint = 
+$CertificateThumbprint = AB1C2D3E4F5G6H7I8J9K0L1M2N3O4P5Q6R7S8T9U0V1W2X3Y4Z5
 $Certificate = Get-ChildItem –Path Cert:\CurrentUser\My\$CertificateThumbprint
 Export-Certificate -Cert $Certificate -FilePath "C:\Users\Administrator\Desktop\$CertificateName.cer" 
 ```
 
+To export all certificates from the cert:\CurrentUser\my store, run the following cmdlet:
+
+```powershell
+Get-ChildItem -Path Cert:\CurrentUser\My | Export-Certificate -FilePath C:\Certs\AllCertificates.sst  
+```
+
+> [!NOTE]
+> When exporting a single certificate, the default format is **CER**. When exporting multiple certificates, the default format is **SST**. You can use the Type parameter to change the file type.
